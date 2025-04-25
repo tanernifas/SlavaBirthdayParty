@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #87CEEB; /* Голубой фон */
+}
+
+canvas {
+  display: block;
+}
+
+#jumpButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+}
