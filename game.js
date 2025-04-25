@@ -15,7 +15,7 @@ const player = {
   x: 100,
   y: canvas.height - 300, // Переместили игрока выше
   width: 50,
-  height: 50,
+  height: 80,
   dy: 0,
   isJumping: false,
 };
@@ -192,7 +192,7 @@ function gameOver() {
   updateLeaderboardDisplay(); // Обновляем отображение таблицы лидеров
 
   // Отправляем рекорд в Telegram
-  const message = `🎮 Новый рекорд: ${tg.initDataUnsafe.user.username} ${score}! 🎉\nТоп-5 лидеров:\n${leaderboard.join('\n')}`;
+  const message = `🎮 Новый рекорд: ${tg.initDataUnsafe.user.username} ${score}! 🎉\nТоп-5 рекордов:\n${leaderboard.join('\n')}`;
   sendToTelegram(message);
 
   resetGame(); // Сбрасываем состояние игры
