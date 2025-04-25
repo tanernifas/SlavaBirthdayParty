@@ -53,6 +53,7 @@ backgroundImage.src = 'background.png'; // Замените на ссылку н
 let backgroundX = 0;
 
 // Telegram Bot API настройки
+let tg = window.Telegram.WebApp;
 const TELEGRAM_BOT_TOKEN = '7976307147:AAGc20uHZOJCnQ_0Mu-0-ZXuuvywdHeC9UE'; // Замените на ваш токен
 const TELEGRAM_CHAT_ID = '-1002491968585'; // Замените на ID вашего канала или чата
 
@@ -126,7 +127,7 @@ function updatePlayer() {
   player.y += player.dy;
 
   // Проверка столкновения с землёй
-  const groundLevel = canvas.height - 215; // Уровень земли теперь выше
+  const groundLevel = canvas.height - 150; // Уровень земли теперь выше
   if (player.y + player.height >= groundLevel) {
     player.y = groundLevel - player.height;
     player.isJumping = false;
@@ -144,7 +145,7 @@ function spawnObstacle() {
   const width = Math.random() * 50 + 20; // Случайная ширина
   const height = Math.random() * 50 + 20; // Случайная высота
   const x = canvas.width;
-  const y = canvas.height - 215 - height; // Подняли препятствия выше
+  const y = canvas.height - 150 - height; // Подняли препятствия выше
 
   obstacles.push({ x, y, width, height, color: 'brown' });
 }
@@ -191,7 +192,7 @@ function gameOver() {
   updateLeaderboardDisplay(); // Обновляем отображение таблицы лидеров
 
   // Отправляем рекорд в Telegram
-  const message = `🎮 Новый рекорд: ${score}! 🎉\nТоп-5 лидеров:\n${leaderboard.join('\n')}`;
+  const message = `🎮 Новый рекорд: ${tg.initDataUnsafe.user.username} ${score}! 🎉\nТоп-5 лидеров:\n${leaderboard.join('\n')}`;
   sendToTelegram(message);
 
   resetGame(); // Сбрасываем состояние игры
@@ -200,7 +201,7 @@ function gameOver() {
 // Сброс состояния игры
 function resetGame() {
   player.x = 100;
-  player.y = canvas.height - 365; // Переместили игрока выше
+  player.y = canvas.height - 300; // Переместили игрока выше
   player.dy = 0;
   player.isJumping = false;
 
