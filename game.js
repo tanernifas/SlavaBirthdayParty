@@ -115,8 +115,21 @@ function updateObstacles() {
 
 // Конец игры
 function gameOver() {
-  alert(`Игра окончена! Ваш счёт: ${score}`);
-  document.location.reload(); // Перезагрузка страницы
+  isGameRunning = false; // Останавливаем игру
+  menu.style.display = 'block'; // Показываем меню
+  alert(`Игра окончена! Ваш счёт: ${score}`); // Выводим сообщение о конце игры
+  resetGame(); // Сбрасываем состояние игры
+}
+
+// Сброс состояния игры
+function resetGame() {
+  player.x = 100;
+  player.y = canvas.height - 150;
+  player.dy = 0;
+  player.isJumping = false;
+
+  obstacles.length = 0; // Очищаем массив препятствий
+  score = 0; // Сбрасываем счёт
 }
 
 // Отрисовка счёта
