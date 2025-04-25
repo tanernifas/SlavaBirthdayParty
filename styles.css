@@ -8,6 +8,41 @@ canvas {
   display: block;
 }
 
+#menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#menu h1 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+#menu button {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#menu button:hover {
+  background-color: #2980b9;
+}
+
 #jumpButton {
   position: absolute;
   bottom: 20px;

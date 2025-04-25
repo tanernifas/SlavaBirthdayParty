@@ -30,6 +30,14 @@ let score = 0;
 // Кнопка прыжка
 const jumpButton = document.getElementById('jumpButton');
 
+// Меню
+const menu = document.getElementById('menu');
+const startButton = document.getElementById('startButton');
+const settingsButton = document.getElementById('settingsButton');
+const exitButton = document.getElementById('exitButton');
+
+let isGameRunning = false;
+
 // Обработка нажатий клавиш и кнопки
 function handleJump() {
   if (!player.isJumping) {
@@ -120,6 +128,8 @@ function drawScore() {
 
 // Основной игровой цикл
 function gameLoop() {
+  if (!isGameRunning) return;
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Отрисовка и обновление игрока
@@ -137,5 +147,22 @@ function gameLoop() {
 }
 
 // Запуск игры
-setInterval(spawnObstacle, spawnInterval); // Генерация препятствий
-gameLoop();
+function startGame() {
+  isGameRunning = true;
+  menu.style.display = 'none'; // Скрываем меню
+  setInterval(spawnObstacle, spawnInterval); // Генерация препятствий
+  gameLoop();
+}
+
+// Логика кнопок меню
+startButton.addEventListener('click', startGame);
+
+settingsButton.addEventListener('click', () => {
+  alert('Здесь скоро будут рекорды.');
+});
+
+exitButton.addEventListener('click', () => {
+  if (confirm('Вы уверены, что хотите выйти?')) {
+    window.close(); // Закрывает вкладку
+  }
+});
