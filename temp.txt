@@ -1,0 +1,2 @@
+backgroundImage.src = 'background.png'; // Замените на ссылку на ваше изображение
+groundHeight = 215

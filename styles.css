@@ -43,6 +43,35 @@ canvas {
   background-color: #2980b9;
 }
 
+#highScoreDisplay {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+#leaderboard {
+  list-style-type: none;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  margin: 0 auto;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#leaderboard li {
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+#leaderboard li:last-child {
+  border-bottom: none;
+}
+
 #jumpButton {
   position: absolute;
   bottom: 20px;
